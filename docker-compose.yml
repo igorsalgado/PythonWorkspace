@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  datascience:
+    build: .
+    container_name: datascience_container
+    volumes:
+      - ./notebooks:/usr/src/app/notebooks
+    ports:
+      - "8888:8888"
+    command: ["jupyter", "lab", "--ip=0.0.0.0", "--allow-root", "--no-browser", "--notebook-dir=/usr/src/app/notebooks"]
